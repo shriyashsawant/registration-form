@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts/linearicons/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>User Registration and Login</title>
+    <style>
+        body {
+            font-family: "Muli-Regular";
+            margin: 0;
+            padding: 0;
+            background-color: #accffe;
+        }
+
+        .wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inner {
+            position: relative;
+            width: 435px;
+            margin: 0 auto; 
+        }
+
+        .container {
+            max-width: 435px;
+            margin: 50px auto;
+            padding: 77px 61px 66px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h3 {
+            text-transform: uppercase;
+            font-size: 25px;
+            font-family: "Muli-SemiBold";
+            color: #333;
+            letter-spacing: 3px;
+            text-align: center;
+            margin-bottom: 33px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        .form-holder {
+            position: relative;
+            margin-bottom: 21px;
+        }
+
+        .form-holder span {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 15px;
+            color: #333;
+        }
+
+        .form-control {
+            border: none;
+            border-bottom: 1px solid #e6e6e6;
+            display: block;
+            width: 100%;
+            height: 38px;
+            background: none;
+            padding: 3px 42px 0px;
+            color: #666;
+            font-family: "Muli-SemiBold";
+            font-size: 16px;
+        }
+
+        .form-control::-webkit-input-placeholder {
+            font-size: 14px;
+            font-family: "Muli-Regular";
+            color: #999;
+            transform: translateY(1px);
+        }
+
+        .form-control::-moz-placeholder {
+            font-size: 14px;
+            font-family: "Muli-Regular";
+            color: #999;
+            transform: translateY(1px);
+        }
+
+        .form-control:-ms-input-placeholder {
+            font-size: 14px;
+            font-family: "Muli-Regular";
+            color: #999;
+            transform: translateY(1px);
+        }
+
+        .form-control:-moz-placeholder {
+            font-size: 14px;
+            font-family: "Muli-Regular";
+            color: #999;
+            transform: translateY(1px);
+        }
+
+        .form-control:focus {
+            border-bottom: 1px solid #accffe;
+        }
+
+        button {
+            border: none;
+            width: 100%;
+            height: 49px;
+            margin-top: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            background: #99ccff;
+            color: #fff;
+            text-transform: uppercase;
+            font-family: "Muli-SemiBold";
+            font-size: 15px;
+            letter-spacing: 2px;
+            transition: all 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button span {
+            position: relative;
+            z-index: 2;
+        }
+
+        button:before, button:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: rgba(52, 152, 253, 0.25);
+            transition: all 0.3s;
+            transform: translate(-100%, 0);
+        }
+
+        button:after {
+            transition-delay: 0.2s;
+        }
+
+        button:hover:before, button:hover:after {
+            transform: translate(0, 0);
+        }
+    </style>
+
+    <!-- JavaScript Function for Tabs -->
+    <script>
+        function toggleForms() {
+            var registrationForm = document.getElementById("registration-form");
+            var loginForm = document.getElementById("login-form");
+
+            if (registrationForm.style.display === "block") {
+                registrationForm.style.display = "none";
+                loginForm.style.display = "block";
+            } else {
+                registrationForm.style.display = "block";
+                loginForm.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="inner">
+
+    <div class="wrapper" id="registration-form">
+            <img src="images/image-1.png" alt="" class="image-1">
+        <form id="registrationForm" action="/register" method="post">
+            <h3>New Registration</h3>
+            <div class="form-holder">
+                <span class="lnr lnr-user"></span>
+                <label for="username"></label>
+                <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
+            </div>
+
+            <div class="form-holder">
+                <span class="lnr lnr-envelope"></span>
+                <label for="email"></label>
+                <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
+            </div>
+
+            <div class="form-holder">
+                <span class="lnr lnr-phone-handset"></span>
+                <label for="phoneNumber"></label>
+                <input type="text" class="form-control" id="phoneNumber" placeholder="PhoneNumber" name="phoneNumber" required>
+            </div>
+
+            <div class="form-holder">
+                <span class="lnr lnr-lock"></span>
+                <label for="password"></label>
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
+            </div>
+
+            <button type="submit">Register</button>
+            <div class="tabs">
+                <button onclick="toggleForms()">Login</button>
+            </div>
+        </form>
+        <img src="images/image-2.png" alt="" class="image-2">
+    </div>
+
+
+    <div class="wrapper" id="login-form" style="display: none;">
+            <img src="images/image-1.png" alt="" class="image-1">
+        <h3>New Registration</h3>
+        <h3>User Login</h3>
+        <form id="loginForm" action="/login" method="post">
+
+            <div class="form-holder">
+                <span class="lnr lnr-user"></span>
+                <label for="loginUsername"></label>
+                <input type="text" id="loginUsername" name="username" class="form-control" placeholder="Username" required>
+            </div>
+
+            <div class="form-holder">
+                <span class="lnr lnr-lock"></span>
+                <label for="loginPassword"></label>
+                <input type="password" id="loginPassword" name="password" class="form-control" placeholder="Password" required>
+            </div>
+
+            <button type="submit">Login</button>
+
+            <div class="tabs">
+                <button onclick="toggleForms()">New User? Register</button>
+            </div>
+        </form>
+        <img src="images/image-2.png" alt="" class="image-2">
+    </div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
